@@ -13,10 +13,14 @@ const app = new Hono<{ Bindings: Env }>();
 app.use('*', cors({
 	origin: (origin) => {
 		// Allow all localhost origins in development
-		if (!origin || origin.startsWith('http://localhost:') || origin === 'https://promptforge.pages.dev') {
+		if (!origin || origin.startsWith('http://localhost:')) {
 			return origin || '*';
 		}
-		return 'https://promptforge.pages.dev';
+		// Allow Cloudflare Pages domains
+		if (origin.endsWith('.pages.dev') || origin === 'https://promptforge.pages.dev') {
+			return origin;
+		}
+		return 'https://promptforge-8tb.pages.dev';
 	},
 	allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 	allowHeaders: ['Content-Type', 'Authorization'],

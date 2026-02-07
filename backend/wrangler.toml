@@ -6,12 +6,12 @@ compatibility_date = "2026-02-05"
 [[d1_databases]]
 binding = "DB"
 database_name = "promptforge-db"
-database_id = "placeholder" # Will be replaced after creating D1 database
+database_id = "25361e0e-f09f-404f-940a-07eb05627699"
 
 # KV namespace for rate limiting and caching
 [[kv_namespaces]]
 binding = "CACHE"
-id = "placeholder" # Will be replaced after creating KV namespace
+id = "fbfd4ec304854383a16c966d55df382b"
 
 # R2 bucket for exports (optional)
 [[r2_buckets]]
